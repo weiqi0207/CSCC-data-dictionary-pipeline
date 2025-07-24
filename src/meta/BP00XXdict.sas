@@ -527,7 +527,7 @@ libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input 
 
     /* Export final dictionary as Excel file */
     proc export data=input_final8
-        outfile="&outdir.\dictionary_output\&bkmrk..xlsx"
+        outfile="&outdir.\output\meta\&bkmrk..xlsx"
         dbms=xlsx
         replace;
     run;
