@@ -2,28 +2,29 @@
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* Define macro variables for directories, dataset names, and labels */
-%let outdir=; /*Replace this with your working directory */
-%let rt =; /*replace with rt numbers of your derievd dataset accordingly */
+%let outdir=...\CSCC-data-dictionary-pipeline; /*Replace ... with your working directory */
 
-%let bp =; /*replace with rt numbers of your request accordingly */
-%let ds=;/* Replace this with your input derived dataset */
+%let bp =; /* Replace with bp numbers of your request accordingly */
+%let ds=; /* Replace this with the name your input derived dataset */
 
 
-%let pat=BEST_DERV;  /* user-defined prefix of bookmarked table in the request .docx file*/
+%let pat=BEST_DERV;  /* User-defined prefix of bookmarked table in the request .docx file, in the mock request the name is best_derv_demographics Variable */
+/* Keep the name as short as possible, because SAS variable name length is limited to 32 characters */
 
 /* Assign libnames for derived dataset and source data */
 libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input files: derived datasets and request.docx file ready in a folder named input under the working directory*/
+/* In this case the folder is ...\CSCC-data-dictionary-pipeline\input\BPXXXX */
 
 /* Include external macro for Word to CSV conversion */
-%include "&outdir.\dictionary_input\Word_to_CSV.sas" / source2; /*Incldue Word_to_CSV.sas in your input files*/
+%include "&outdir.\input\Word_to_CSV.sas" / source2; /*Incldue Word_to_CSV.sas in your input files*/
 
 /* Main macro for dictionary creation */
 %macro run_it(ds=, SCrequest=, bkmrk=);
 
     /* Run VBS script to convert Word doc to CSV */
     %create_run_vbs(outdir=&outdir.,
-                    template_file=&outdir.\dictionary_input\word_to_csv.txt,
-                    SCrequest=&outdir.\dictionary_input\&SCrequest,
+                    template_file=&outdir.\input\word_to_csv.txt,
+                    SCrequest=&outdir.\input\&SCrequest,
                     bookmark=&bkmrk);
 
     /* Import generated CSV as input0 */
@@ -31,7 +32,7 @@ libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input 
                 out=input0
                 dbms=csv replace;
                 guessingrows=max;
-    run;
+    run; /* The csv is created under your main working directory */
 
     /* Dynamically extract VARNAME column (BEST_DERV*) but replace accordingly if needed */
     proc sql noprint;
@@ -536,6 +537,6 @@ libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input 
 /* Run macro with specified inputs */
 %run_it(
     ds=&ds,
-    SCrequest=%str(Practicum_BP00XX_Analysis Dataset and Data Dictionary Creation.docx), /*Replace this with your request file name */
-    bkmrk=c2c /*Replace this with the bookmark of the meta data table in the request document */
+    SCrequest=%str(request.docx), /*Replace this with your request file name */
+    bkmrk=c2b /*Replace this with the bookmark of the meta data table in the request document */
 );
