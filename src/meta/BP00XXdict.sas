@@ -1,57 +1,18 @@
-***********************************************************************                                    
-    COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                          
-    REQUEST NUMBER:  BP00XX                                                                                                                                                   
-                                                                                                                                                                                                                                                          
-    REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
-                                                                                                                                                                                                                                                          
-    REQUEST DESCR:   Create dictionaries that meet the BDC dictionaries requirements
-                                                                                                                                                                                                                                     
-    STUDY:           BEST                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    MANUSCRIPT #:    Practicum Project                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    PROGRAMMER:      Weiqi Wang
- 
-    REQUESTOR:       Micah McCumber
- 
-    SUBMITTED BY:    n/a
- 
-    DATE:            05/28/2025
-----------------------------------------------------------------------                                                                                                                                                                                    
-    JOBNAME:         BP_dictionary
-
-    JOB DESCRIPTION: Create data dictionary based on derived dataset
-
-    LANGUAGE/VER:    SAS - Ver 9.4
-
-    HISTORY (PROG):  
-
-    RELATED:         n/a
-
-    PROGRAM NOTES:   
------------------------------------------------------------------------
-    INPUT FILES:     derived dataset.sas
-        
-    OUTPUT FILES:    dictionary.csv
-
-***********************************************************************;
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* Define macro variables for directories, dataset names, and labels */
-%let outdir=J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum; /*Replace this with your working directory */
-%let rt =240620; /*replace with rt numbers of your derievd dataset accordingly */
-/*%let rt_label=250116;*/
-%let bp = BP0060; /*replace with rt numbers of your request accordingly */
-%let ds=best_derv_sdoh_240620;/* Replace this with your derived dataset */
-/*%let ds_label=varlabel;*/
+%let outdir=; /*Replace this with your working directory */
+%let rt =; /*replace with rt numbers of your derievd dataset accordingly */
 
-%let pat=BEST_DERV;  /* or any other user-defined prefix of bookmarked table in the request */
+%let bp =; /*replace with rt numbers of your request accordingly */
+%let ds=;/* Replace this with your input derived dataset */
 
-/* Assign libnames for derived and source data */
-libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input files: derived datasets and request.docx file ready in a folder named dictionary_input under the working directory*/
-/*libname source "J:\BACPAC\SC\SASdata\BEST\&rt_label" access=readonly;*/
+
+%let pat=BEST_DERV;  /* user-defined prefix of bookmarked table in the request .docx file*/
+
+/* Assign libnames for derived dataset and source data */
+libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input files: derived datasets and request.docx file ready in a folder named input under the working directory*/
 
 /* Include external macro for Word to CSV conversion */
 %include "&outdir.\dictionary_input\Word_to_CSV.sas" / source2; /*Incldue Word_to_CSV.sas in your input files*/
