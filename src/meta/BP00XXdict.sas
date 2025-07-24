@@ -2,10 +2,10 @@
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* Define macro variables for directories, dataset names, and labels */
-%let outdir=...\CSCC-data-dictionary-pipeline; /*Replace ... with your working directory */
+%let outdir=C:\Users\YourName\Documents\CSCC-data-dictionary-pipeline; /*Replace ... with your working directory */
 
-%let bp =; /* Replace with bp numbers of your request accordingly */
-%let ds=; /* Replace this with the name your input derived dataset */
+%let bp =BPXXXX; /* Replace with bp numbers of your request accordingly */
+%let ds=mock_data; /* Replace this with the name your input derived dataset */
 
 
 %let pat=BEST_DERV;  /* User-defined prefix of bookmarked table in the request .docx file, in the mock request the name is best_derv_demographics Variable */
