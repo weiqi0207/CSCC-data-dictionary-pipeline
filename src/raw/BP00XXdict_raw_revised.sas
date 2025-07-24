@@ -1,49 +1,11 @@
-***********************************************************************                                    
-    COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                          
-    REQUEST NUMBER:  BP00XX                                                                                                                                                   
-                                                                                                                                                                                                                                                          
-    REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
-                                                                                                                                                                                                                                                          
-    REQUEST DESCR:   Create dictionaries that meet the BDC dictionaries requirements
-                                                                                                                                                                                                                                     
-    STUDY:           BEST                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    MANUSCRIPT #:    Practicum Project                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    PROGRAMMER:      Weiqi Wang
- 
-    REQUESTOR:       Micah McCumber
- 
-    SUBMITTED BY:    n/a
- 
-    DATE:            07/04/2025
-----------------------------------------------------------------------                                                                                                                                                                                    
-    JOBNAME:         BP_dictionary
-
-    JOB DESCRIPTION: Create data dictionary based on raw dataset
-
-    LANGUAGE/VER:    SAS - Ver 9.4
-
-    HISTORY (PROG):  
-
-    RELATED:         n/a
-
-    PROGRAM NOTES:   
------------------------------------------------------------------------
-    INPUT FILES:     raw data.sas
-        
-    OUTPUT FILES:    dictionary.csv
-
-***********************************************************************;
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
-%let indir=J:\BACPAC\SC\SASdata\BEST\250116\; /*Replace this with your input directory */
-%let outdir=J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum\raw\output\; /*Replace this with your output directory */
-%let ds=PAF_250116;/* Replace this with main input dataset */
-%let cl=codelist250116;/* Replace this with codelist */
-%let vl=varlabel250116;/* Replace this with varlabel */
+%let indir=J:\abc\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
+%let outdir=J:\abc\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
+%let ds=;/* Replace this with main input dataset */
+%let cl=;/* Replace this with codelist */
+%let vl=;/* Replace this with varlabel */
 %macro run_it(ds=,cl=,vl=);
 
     /* Read in the derived dataset */
