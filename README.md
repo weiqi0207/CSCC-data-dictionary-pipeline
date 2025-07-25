@@ -156,6 +156,6 @@ Despite these limitations, the pipeline provides a strong starting point for eff
 
 ## Contact
 
-This project is maintained by **Weiqi Wang** UNC Chapel Hill. For any questions, feedback, or assistance with running the pipeline, please do not hesitate to contact Weiqi at **wang0207@unc.edu**. We encourage users from other institutions or centers to reach out if you are interested in using or adapting this pipeline for your own data sharing needs.
+This project is maintained by **Weiqi Wang** at UNC Chapel Hill. For any questions, feedback, or assistance with running the pipeline, please do not hesitate to contact Weiqi at **wang0207@unc.edu**. We encourage users from other institutions or centers to reach out if you are interested in using or adapting this pipeline for your own data sharing needs.
 
 ---
