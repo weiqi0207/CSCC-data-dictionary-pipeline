@@ -24,9 +24,9 @@ input directory:
 ```
 Make sure to have raw datasets, variable label, and code list files ready in this directory
 
--raw dataset: the .sas7bdat file gathered from your clinical research in long format
--variable label: the .sas7bdat file used to map metavariable Varlabel and Comment1
--code list: the .sas7bdat file used to map metavariable Values for encoded variables
+1. raw dataset: the .sas7bdat file gathered from your clinical research in long format
+2. variable label: the .sas7bdat file used to map metavariable Varlabel and Comment1
+3. code list: the .sas7bdat file used to map metavariable Values for encoded variables
 ---
 
 ### Meta Pipeline
@@ -39,8 +39,8 @@ input directory:
 
 Make sure to have derived datasets and labeled request file ready in this directory
 
--meta dataset: the .sas7bdat file combined from multiple raw datsets
--request: the .docx file containing the specific instructions to create metadatsets (be sure to bookmark the tables that corresponding to the input meta datasets accordingly.)
+1. meta dataset: the .sas7bdat file combined from multiple raw datsets
+2. request: the .docx file containing the specific instructions to create metadatsets (be sure to bookmark the tables that corresponding to the input meta datasets accordingly.)
 ---
 
 
