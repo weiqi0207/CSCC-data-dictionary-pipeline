@@ -85,3 +85,17 @@ Make sure to have derived datasets and labeled request file ready in this direct
 6. Verify the generated dictionaries accordingly and modify the code if needed
 
 ---
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+##  Maintainers
+
+This repository was originally created by **Weiqi Wang** on behalf of UNC Chapel Hill – CSCC
+
+As of **August 15, 2025**, maintenance has been transferred to:  
+**Karthik Edupuganti** (UNC Chapel Hill – CSCC)  
+GitHub: 
+Email: kedupug@email.unc.edu
