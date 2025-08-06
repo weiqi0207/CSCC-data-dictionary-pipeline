@@ -2,7 +2,7 @@
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* Define macro variables for directories, dataset names, and labels */
-%let outdir=C:\Users\YourName\Documents\CSCC-data-dictionary-pipeline; /*Replace ... with your working directory */
+%let outdir= \CSCC-data-dictionary-pipeline\; /*Replace ... with your working directory */
 
 %let bp =BPXXXX; /* Replace with bp numbers of your request accordingly */
 %let ds=mock_data; /* Replace this with the name your input derived dataset */
@@ -540,3 +540,4 @@ libname derv "&outdir.\dictionary_input\&bp" access=readonly; /*Have your input 
     SCrequest=%str(request.docx), /*Replace this with your request file name */
     bkmrk=c2b /*Replace this with the bookmark of the meta data table in the request document */
 );
+
