@@ -80,7 +80,7 @@ Make sure to have derived datasets and labeled request file ready in this direct
 
 4. When the secruity window regarding the VBS script pop out, click yes
 
-5. A window said **Table copied successfully to CSV!** will pop out, click OK
+5. A window said **'Table copied successfully to CSV!'** will pop out, click OK
 
 6. Verify the generated dictionaries accordingly and modify the code if needed
 
