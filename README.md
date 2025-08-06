@@ -10,9 +10,9 @@ Automated SAS-based pipelines to generate machine-readable and human-readable da
 ```
 git clone https://github.com/weiqi0207/CSCC-data-dictionary-pipeline
 ```
-3.  **Prepare Input Files**:
-
 ---
+
+3.  **Prepare Input Files**:
 ***Note: All example input files can be found in the input directory***
 
 ### Raw Pipeline
