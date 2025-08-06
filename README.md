@@ -10,8 +10,6 @@ Automated SAS-based pipelines to generate machine-readable and human-readable da
 ```bash
 git clone https://github.com/weiqi0207/CSCC-data-dictionary-pipeline
 ```
-
----
 3.  **Prepare Input Files**: Put your raw dataset file(s) or metadata specification file into the appropriate location.
 
 ### Raw Dataset input directory: 
