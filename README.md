@@ -7,14 +7,37 @@ Automated SAS-based pipelines to generate machine-readable and human-readable da
 ## Prerequisites
 1.	**Ensure you have access to SAS 9.4**
 2.	**Clone or Download the Repository**:
-```bash
+```
 git clone https://github.com/weiqi0207/CSCC-data-dictionary-pipeline
 ```
-3.  **Prepare Input Files**: Put your raw dataset file(s) or metadata specification file into the appropriate location.
+3.  **Prepare Input Files**:
 
-### Raw Dataset input directory: 
+---
 
-### Meta Dataset input directory:
+### Raw Pipeline
+
+input directory: 
+
+```
+/CSCC-data-dictionary-pipeline/input/raw
+
+```
+Make sure to have rawdatasets, variable label, and code list files ready in this directory
+
+
+
+---
+
+### Meta Pipeline
+
+input directory:
+
+```
+/CSCC-data-dictionary-pipeline/input/BPXXXX
+
+```
+
+Make sure to have derived datasets and labeled request file ready in this directory
 
 ---
 
