@@ -5,7 +5,7 @@ Automated SAS-based pipelines to generate machine-readable and human-readable da
 ---
 
 ## Prerequisites
-1.	**Setup SAS Environment**: Ensure you have access to SAS 9.4.
+1.	**Ensure you have access to SAS 9.4**
 2.	**Clone or Download the Repository**:
 ```bash
 git clone https://github.com/weiqi0207/CSCC-data-dictionary-pipeline
