@@ -85,9 +85,3 @@ Make sure to have derived datasets and labeled request file ready in this direct
 6. Verify the generated dictionaries accordingly and modify the code if needed
 
 ---
-
-### Known Limitations:
-- **SAS session memory**: Restart SAS before switching datasets to avoid retained variable leaks
-- **Resolution rounding**: SAS drops trailing zeroes (e.g., `151.10` → `151.1`); ~10% risk of misclassification
-- **Missing handling**: Encoded values (e.g., `98`, `99`) are *not treated as missing*
-- **No ontology/harmonization**: This pipeline does not yet map to controlled vocabularies
