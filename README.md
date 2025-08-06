@@ -13,6 +13,7 @@ git clone https://github.com/weiqi0207/CSCC-data-dictionary-pipeline
 3.  **Prepare Input Files**:
 
 ---
+***Note: All example input files can be found in the input directory***
 
 ### Raw Pipeline
 
@@ -20,12 +21,12 @@ input directory:
 
 ```
 /CSCC-data-dictionary-pipeline/input/raw
-
 ```
-Make sure to have rawdatasets, variable label, and code list files ready in this directory
+Make sure to have raw datasets, variable label, and code list files ready in this directory
 
-
-
+-raw dataset: the .sas7bdat file gathered from your clinical research in long format
+-variable label: the .sas7bdat file used to map metavariable Varlabel and Comment1
+-code list: the .sas7bdat file used to map metavariable Values for encoded variables
 ---
 
 ### Meta Pipeline
@@ -34,66 +35,54 @@ input directory:
 
 ```
 /CSCC-data-dictionary-pipeline/input/BPXXXX
-
 ```
 
 Make sure to have derived datasets and labeled request file ready in this directory
 
+-meta dataset: the .sas7bdat file combined from multiple raw datsets
+-request: the .docx file containing the specific instructions to create metadatsets (be sure to bookmark the tables that corresponding to the input meta datasets accordingly.)
 ---
 
 
 ## Usage
 
 ### Raw Data Dictionary Pipeline (`BP00XXdict.sas`)
-Automates the profiling of long-format raw datasets (e.g., BEST Trial baseline/follow-up forms).
+
+1. Rename the following macros according to the comment:
+
+```sas
+%let indir=../CSCC-data-dictionary-pipeline/input/raw; /* Replace this with the actual physical location */
+%let outdir=.../CSCC-data-dictionary-pipeline/output/raw; /* Replace this with the actual physical location (this can be anywhere you want) */
+%let ds=raw_input.sas7bdat; /* Replace this with the list of the full name of your input raw datasets */
+%let cl=codelist.sas7bdat;  /* Replace this with the name of your code list file */
+%let vl=varlabel.sas7bdat;  /* Replace this with the name of your variable label file */
+```
+2. Execute the code all at once
+
+3. A single `.xlsx` file with multiple sheets will be generated in `outdir` specified above
+
+4. Always check the information within the `.xlsx` file.
+
+5. If needed, manually change the code by referencing the comments within the code according to your demand
 
 ---
 
 ### Meta Data Dictionary Pipeline (`BP00XXdict_raw_revised.sas`)
-Parses metadata tables from bookmarked Word requests and aligns them with derived datasets.
 
----
+1. Turn off all `docx`, `csv` files otherwise the VBS script will not run properly
 
-## Usage Instructions
+2. Rename the following macros according to the comment:
 
-This repository contains the SAS programs and template files needed to run the pipeline. Follow these steps to generate a data dictionary for your study:
-
-
-1.	**Setup SAS Environment**: Ensure you have access to SAS 9.4.
-2.	**Clone or Download the Repository**: Obtain the files from this GitHub repository (either via git clone or by downloading the ZIP). The repository includes one or more SAS programs and possibly example data.
-3.	**Prepare Input Files**: Put your raw dataset file(s) and metadata specification file into the appropriate location. You may need to edit the SAS program to point to these files. Open the main SAS program in a text editor or SAS editor. Look for a section at the top where file paths or library names are defined. For instance, you might see macro variables or libname statements such as:
-
----
-### **Raw Pipeline Inputs**
 ```sas
-%let indir=.../input/raw;
-%let outdir=.../output/raw;
-%let ds=raw_input.sas7bdat;
-%let cl=codelist.sas7bdat;
-%let vl=varlabel.sas7bdat;
 
-%run_it(ds=&ds, cl=&cl, vl=&vl);
 ```
+3. Execute the code all at once
 
----
+4. When the secruity window regarding the VBS script pop out, click yes
 
-### **Meta Pipeline Inputs**
-```sas
-%let outdir=.../CSCC-data-dictionary-pipeline;
-%let bp=BPXXXX;
-%let ds=mock_data;
-%let pat=BEST_DERV; /* This is the study title which should be present among all of your request tables. For example, best_derv_phys_assess Variable. Don't worry, SAS is case insensitive. */
+5. A window said **Table copied successfully to CSV!** will pop out, click OK
 
-%run_it(
-  ds=&ds,
-  SCrequest=%str(request.docx),
-  bkmrk=c2b
-);
-```
-
----
-
-Update these paths to match your environment. If the raw data consists of multiple files, also specify each or use a libname directory to point to them, as instructed in the comments. Ensure that the metadata file path and format is correctly specified (e.g., if it's an Excel, the code might use PROC IMPORT or a LIBNAME XLSX to read it).
+6. Verify the generated dictionaries accordingly and modify the code if needed
 
 ---
 
