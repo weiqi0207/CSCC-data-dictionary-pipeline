@@ -1,8 +1,8 @@
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
-%let indir=J:\abc\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
-%let outdir=J:\abc\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
+%let indir= \CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
+%let outdir= \CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
 %let ds=;/* Replace this with main input dataset */
 %let cl=;/* Replace this with codelist */
 %let vl=;/* Replace this with varlabel */
@@ -563,4 +563,5 @@ options mergenoby=warn validvarname=upcase minoperator;
 	cl=&cl,
 	vl=&vl
 );
+
 
