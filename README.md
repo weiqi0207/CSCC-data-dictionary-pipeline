@@ -95,7 +95,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 This repository was originally created by **Weiqi Wang** on behalf of UNC Chapel Hill – CSCC
 
-As of **August 15, 2025**, maintenance has been transferred to:  
+As of **August 15, 2025**, maintenance has been transferred to:
+
 **Karthik Edupuganti** (UNC Chapel Hill – CSCC)  
 GitHub: kedupug2025
 Email: kedupug@email.unc.edu
