@@ -99,3 +99,5 @@ As of **August 15, 2025**, maintenance has been transferred to:
 **Karthik Edupuganti** (UNC Chapel Hill – CSCC)  
 GitHub: kedupug2025
 Email: kedupug@email.unc.edu
+
+---
