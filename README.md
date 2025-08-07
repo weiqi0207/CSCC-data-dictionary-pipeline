@@ -97,5 +97,5 @@ This repository was originally created by **Weiqi Wang** on behalf of UNC Chapel
 
 As of **August 15, 2025**, maintenance has been transferred to:  
 **Karthik Edupuganti** (UNC Chapel Hill – CSCC)  
-GitHub: 
+GitHub: kedupug2025
 Email: kedupug@email.unc.edu
