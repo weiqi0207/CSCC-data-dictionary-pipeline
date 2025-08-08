@@ -102,7 +102,7 @@ Also Check the follwings:
 ---
 ## Known Limitations
 
-1. The current pipeline for both data stcutures was developed and tested exclusively on BACPAC data of CSCC studies and aim to follow BDC requirements **'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/data-management/data-submission-instructions/data-dictionary-requirement'** which is generalieable to other purposes. The specific rules of CSCC can be found in the `request.docx` document
+1. The current pipeline for both data stcutures was developed and tested exclusively on BACPAC data of CSCC studies and aim to follow BDC requirements **'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/data-management/data-submission-instructions/data-dictionary-requirement'** which is not generalizable to other purposes. The specific rules of CSCC can be found in the `request.docx` document
 2. The current pipeline for both data stcutures do not offer the classiifcation of **Mixed** TYPE by BDC definition, as it is rare
 
 
