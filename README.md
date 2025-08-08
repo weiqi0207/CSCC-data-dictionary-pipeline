@@ -22,11 +22,14 @@ input directory:
 ```
 /CSCC-data-dictionary-pipeline/input/raw
 ```
-Make sure to have raw datasets, variable label, and code list files ready in this directory
+Make sure to have raw datasets, variable label, and code list files ready in this directory:
 
 1. raw dataset: the .sas7bdat file gathered from your clinical research in long format
 2. variable label: the .sas7bdat file used to map metavariable Varlabel and Comment1
 3. code list: the .sas7bdat file used to map metavariable Values for encoded variables
+
+Also Check the follwings:
+
 ---
 
 ### Meta Pipeline
@@ -37,10 +40,16 @@ input directory:
 /CSCC-data-dictionary-pipeline/input/BPXXXX
 ```
 
-Make sure to have derived datasets and labeled request file ready in this directory
+Make sure to have derived datasets and labeled request file ready in this directory:
 
 1. meta dataset: the .sas7bdat file combined from multiple raw datsets
 2. request: the .docx file containing the specific instructions to create metadatsets (be sure to bookmark the tables that corresponding to the input meta datasets accordingly.)
+
+Also Check the follwings:
+
+1. The variable names from derived dataset and the respected request table should be 100% identical (but the sequences do not have to be the same). Make sure to before running to avoid misclassifications of metavariables like ***TYPE***
+2. 
+
 ---
 
 
@@ -61,9 +70,11 @@ Make sure to have derived datasets and labeled request file ready in this direct
 
 3. A single `.xlsx` file with multiple sheets will be generated in `outdir` specified above
 
-4. Always check the information within the `.xlsx` file.
+4. Always check the information within the `.xlsx` file
 
-5. If needed, manually change the code by referencing the comments within the code according to your demand
+5. Restart the program before next run
+
+6. If needed, manually change the code by referencing the comments within the code according to your demand
 
 ---
 
@@ -78,13 +89,22 @@ Make sure to have derived datasets and labeled request file ready in this direct
 ```
 3. Execute the code all at once
 
-4. When the secruity window regarding the VBS script pop out, click yes
+4. Whenever the secruity window regarding the VBS script pop out, click Yes
 
-5. A window said **'Table copied successfully to CSV!'** will pop out, click OK
+5. Whenever the window said **'Table copied successfully to CSV!'** will pop out, click OK
 
-6. Verify the generated dictionaries accordingly and modify the code if needed
+6. When opening the generated `.xlsx` file, it could pop out a window saying there is something wrong with the content and want to recover it, click Yes
+
+7. Restart the program before next run
+
+8. Verify the generated dictionaries accordingly and modify the code if needed
 
 ---
+## Known Limitations
+
+1. The current pipeline for both data stcutures was developed and tested exclusively on BACPAC data of CSCC studies and aim to follow BDC requirements **'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/data-management/data-submission-instructions/data-dictionary-requirement'** which is generalieable to other purposes. The specific rules of CSCC can be found in the `request.docx` document
+2. The current pipeline for both data stcutures do not offer the classiifcation of **Mixed** TYPE by BDC definition, as it is rare
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
