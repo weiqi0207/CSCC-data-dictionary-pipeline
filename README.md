@@ -104,6 +104,7 @@ Also Check the follwings:
 
 1. The current pipeline for both data stcutures was developed and tested exclusively on BACPAC data of CSCC studies and aim to follow BDC requirements **'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/data-management/data-submission-instructions/data-dictionary-requirement'** which is not generalizable to other purposes. The specific rules of CSCC can be found in the `request.docx` document
 2. The current pipeline for both data stcutures do not offer the classiifcation of **Mixed** TYPE by BDC definition, as it is rare
+3. EXCEL is unable to read the content in COMMENT1 correctly and will discard these content.
 
 
 ## Contributing
