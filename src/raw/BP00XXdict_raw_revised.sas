@@ -1,41 +1,3 @@
-***********************************************************************                                    
-    COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                          
-    REQUEST NUMBER:  BP00XX                                                                                                                                                   
-                                                                                                                                                                                                                                                          
-    REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
-                                                                                                                                                                                                                                                          
-    REQUEST DESCR:   Create dictionaries that meet the BDC dictionaries requirements
-                                                                                                                                                                                                                                     
-    STUDY:           BEST                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    MANUSCRIPT #:    Practicum Project                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                                          
-    PROGRAMMER:      Weiqi Wang
- 
-    REQUESTOR:       Micah McCumber
- 
-    SUBMITTED BY:    n/a
- 
-    DATE:            07/04/2025
-----------------------------------------------------------------------                                                                                                                                                                                    
-    JOBNAME:         BP_dictionary
-
-    JOB DESCRIPTION: Create data dictionary based on raw dataset
-
-    LANGUAGE/VER:    SAS - Ver 9.4
-
-    HISTORY (PROG):  
-
-    RELATED:         n/a
-
-    PROGRAM NOTES:   
------------------------------------------------------------------------
-    INPUT FILES:     raw data.sas
-        
-    OUTPUT FILES:    dictionary.csv
-
-***********************************************************************;
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
@@ -669,4 +631,5 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
+
 
