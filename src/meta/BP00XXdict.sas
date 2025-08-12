@@ -10,8 +10,8 @@ options mergenoby=warn validvarname=upcase minoperator;
 %let pat=BEST_DERV;
 
 /* === Libname and Macro Inclusion === */
-libname derv "&outdir.\dictionary_input\&bp" access=readonly;
-%include "&outdir.\dictionary_input\Word_to_CSV.sas" / source2;
+libname derv "&outdir.\input\&bp" access=readonly;
+%include "&outdir.\input\Word_to_CSV.sas" / source2;
 
 /* === Wrapper Macro to Export All === */
 ods excel file="&outxlsx" style=excel;
@@ -646,4 +646,5 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
+
 
