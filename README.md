@@ -60,11 +60,12 @@ Also Check the follwings:
 1. Rename the following macros according to the comment:
 
 ```sas
-%let indir=../CSCC-data-dictionary-pipeline/input/raw; /* Replace this with the actual physical location */
-%let outdir=.../CSCC-data-dictionary-pipeline/output/raw; /* Replace this with the actual physical location (this can be anywhere you want) */
-%let ds=raw_input.sas7bdat; /* Replace this with the list of the full name of your input raw datasets */
-%let cl=codelist.sas7bdat;  /* Replace this with the name of your code list file */
-%let vl=varlabel.sas7bdat;  /* Replace this with the name of your variable label file */
+%let indir=...\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
+%let outdir=...\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
+%let outxlsx = &outdir.\combined_dictionary_raw.xlsx; /*Replace the last element with the intended name of your output .xlsx */
+%let dslist=peg pgic;/* Replace this with raw datasets */
+%let cl=cl;/* Replace this with codelist */
+%let vl=vl;/* Replace this with varlabel */
 ```
 2. Execute the code all at once
 
@@ -85,12 +86,13 @@ Also Check the follwings:
 2. Rename the following macros according to the comment:
 
 ```sas
-%let indir=...\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
-%let outdir=...\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
-%let outxlsx = &outdir.\combined_dictionary_raw.xlsx; /*Replace the last element with the intended name of your output .xlsx */
-%let dslist=peg pgic;/* Replace this with raw datasets */
-%let cl=cl;/* Replace this with codelist */
-%let vl=vl;/* Replace this with varlabel */
+%let outdir = ...\CSCC-data-dictionary-pipeline; /*Replace this with your input directory */
+%let bp = BPXXXX; /* Replace with BP number */
+%let dslist = demographics physical_assessment sdoh; /*Replace the name of input derived_datasets */
+%let bkmrklist = c2a c2b c2c; /*Replace the name of the bookmarks of tables in the request */
+%let SCrequest = Request.docx; /*Replace the name of the request file */
+%let outxlsx = &outdir.\output\meta\combined_dictionary.xlsx; /*Replace the last element with the intended name of your output .xlsx */
+%let pat=BEST_DERV; /*Replace this with the pattern of the name of the bookmarked table (e.g. the example tables all start with BEST_DERV */
 ```
 3. Execute the code all at once
 
