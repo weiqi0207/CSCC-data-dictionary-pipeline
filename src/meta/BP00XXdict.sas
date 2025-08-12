@@ -1,12 +1,12 @@
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* === User Parameters === */
-%let outdir = J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum;
-%let bp = BP0060;
-%let dslist = best_derv_demographics_240620 best_derv_phys_assess_240620 best_derv_sdoh_240620;
+%let outdir = \CSCC-data-dictionary-pipeline;
+%let bp = BPXXXX;
+%let dslist = demographics physical_assessment sdoh;
 %let bkmrklist = c2a c2b c2c;
-%let SCrequest = Practicum_BP00XX_Analysis Dataset and Data Dictionary Creation.docx;
-%let outxlsx = &outdir.\dictionary_output\combined_dictionary.xlsx;
+%let SCrequest = Request.docx;
+%let outxlsx = &outdir.\output\meta\combined_dictionary.xlsx;
 %let pat=BEST_DERV;
 
 /* === Libname and Macro Inclusion === */
@@ -646,3 +646,4 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
+
