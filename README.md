@@ -48,7 +48,7 @@ Make sure to have derived datasets and labeled request file ready in this direct
 Also Check the follwings:
 
 1. The variable names from derived dataset and the respected request table should be 100% identical (but the sequences do not have to be the same). Make sure to before running to avoid misclassifications of metavariables like ***TYPE***
-2. 
+2. The sequence of the dslist must 100% match the sequence of bookmark list
 
 ---
 
