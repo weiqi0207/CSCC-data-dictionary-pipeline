@@ -85,7 +85,12 @@ Also Check the follwings:
 2. Rename the following macros according to the comment:
 
 ```sas
-
+%let indir=...\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
+%let outdir=...\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
+%let outxlsx = &outdir.\combined_dictionary_raw.xlsx; /*Replace the last element with the intended name of your output .xlsx */
+%let dslist=peg pgic;/* Replace this with raw datasets */
+%let cl=cl;/* Replace this with codelist */
+%let vl=vl;/* Replace this with varlabel */
 ```
 3. Execute the code all at once
 
