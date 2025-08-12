@@ -1,12 +1,12 @@
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
-%let indir=J:\BACPAC\SC\SASdata\BEST\250116\; /*Replace this with your input directory */
-%let outdir=J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum\raw\output\; /*Replace this with your output directory */
+%let indir=\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
+%let outdir=\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
 %let outxlsx = &outdir.\combined_dictionary_raw.xlsx; /*Replace the last element with the intended name of your output .xlsx */
-%let dslist=PEG_250116 PGIC_250116;/* Replace this with raw datasets */
-%let cl=codelist250116;/* Replace this with codelist */
-%let vl=varlabel250116;/* Replace this with varlabel */
+%let dslist=peg pgic;/* Replace this with raw datasets */
+%let cl=cl;/* Replace this with codelist */
+%let vl=vl;/* Replace this with varlabel */
 
 
 /* Wrapper Macro to Export All */
@@ -631,5 +631,6 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
+
 
 
