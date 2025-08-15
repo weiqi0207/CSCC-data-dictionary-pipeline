@@ -1,17 +1,55 @@
+***********************************************************************                                    
+    COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                          
+    REQUEST NUMBER:  BP00XX                                                                                                                                                   
+                                                                                                                                                                                                                                                          
+    REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
+                                                                                                                                                                                                                                                          
+    REQUEST DESCR:   Create dictionaries that meet the BDC dictionaries requirements
+                                                                                                                                                                                                                                     
+    STUDY:           BEST                                                                                                                                                                               
+                                                                                                                                                                                                                                                          
+    MANUSCRIPT #:    Practicum Project                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                          
+    PROGRAMMER:      Weiqi Wang
+ 
+    REQUESTOR:       Micah McCumber
+ 
+    SUBMITTED BY:    n/a
+ 
+    DATE:            05/13/2025
+----------------------------------------------------------------------                                                                                                                                                                                    
+    JOBNAME:         BP_dictionary
+
+    JOB DESCRIPTION: Create data dictionary based on raw dataset
+
+    LANGUAGE/VER:    SAS - Ver 9.4
+
+    HISTORY (PROG):  
+
+    RELATED:         n/a
+
+    PROGRAM NOTES:   
+-----------------------------------------------------------------------
+    INPUT FILES:     derived_data.sas
+        
+    OUTPUT FILES:    combined_dictionary.xlsx
+
+***********************************************************************;
 options mergenoby=warn validvarname=upcase minoperator;
 
 /* === User Parameters === */
-%let outdir = \CSCC-data-dictionary-pipeline;
-%let bp = BPXXXX;
-%let dslist = demographics physical_assessment sdoh;
+%let outdir = J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum;
+%let bp = BP0060;
+%let dslist = best_derv_demographics_240620 best_derv_phys_assess_240620 best_derv_sdoh_240620;
 %let bkmrklist = c2a c2b c2c;
-%let SCrequest = Request.docx;
-%let outxlsx = &outdir.\output\meta\combined_dictionary.xlsx;
+%let SCrequest = Practicum_BP00XX_Analysis Dataset and Data Dictionary Creation.docx;
+%let outxlsx = &outdir.\dictionary_output\combined_dictionary.xlsx;
 %let pat=BEST_DERV;
 
 /* === Libname and Macro Inclusion === */
-libname derv "&outdir.\input\&bp" access=readonly;
-%include "&outdir.\input\Word_to_CSV.sas" / source2;
+libname derv "&outdir.\dictionary_input\&bp" access=readonly;
+%include "&outdir.\dictionary_input\Word_to_CSV.sas" / source2;
 
 /* === Wrapper Macro to Export All === */
 ods excel file="&outxlsx" style=excel;
@@ -619,6 +657,14 @@ ods excel file="&outxlsx" style=excel;
 	    from input_final7_sorted;
 	quit;
 
+	/*Typically comment1 start with a = sign, which excel would treat it as a command, so I added a ' before = to avoid the issue*/
+	data input_final8;
+	    set input_final8;
+	    if not missing(COMMENT1) and char(COMMENT1,1)='=' then COMMENT1 = cats("'", COMMENT1);
+	    if not missing(COMMENT2) and char(COMMENT2,1)='=' then COMMENT2 = cats("'", COMMENT2);
+	run;
+
+
 
 
 %mend;
@@ -646,5 +692,3 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
-
-
