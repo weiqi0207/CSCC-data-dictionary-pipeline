@@ -71,11 +71,9 @@ Also Check the follwings:
 
 3. A single `.xlsx` file with multiple sheets will be generated in `outdir` specified above
 
-4. Always check the information within the `.xlsx` file
+4. Restart the program before next run
 
-5. Restart the program before next run
-
-6. If needed, manually change the code by referencing the comments within the code according to your demand
+5. If needed, manually change the code by referencing the comments within the code according to your demand
 
 ---
 
@@ -100,18 +98,15 @@ Also Check the follwings:
 
 5. Whenever the window said **'Table copied successfully to CSV!'** will pop out, click OK
 
-6. When opening the generated `.xlsx` file, it could pop out a window saying there is something wrong with the content and want to recover it, click Yes
+6. Restart the program before next run
 
-7. Restart the program before next run
-
-8. Verify the generated dictionaries accordingly and modify the code if needed
+7. Verify the generated dictionaries accordingly and modify the code if needed
 
 ---
 ## Known Limitations
 
 1. The current pipeline for both data stcutures was developed and tested exclusively on BACPAC data of CSCC studies and aim to follow BDC requirements **'https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/data-management/data-submission-instructions/data-dictionary-requirement'** which is not generalizable to other purposes. The specific rules of CSCC can be found in the `request.docx` document
 2. The current pipeline for both data stcutures do not offer the classiifcation of **Mixed** TYPE by BDC definition, as it is rare
-3. EXCEL is unable to read the content in COMMENT1 correctly and will discard these content.
 
 
 ## Contributing
