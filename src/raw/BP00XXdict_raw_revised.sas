@@ -1,7 +1,7 @@
 ***********************************************************************                                    
     COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
                                                                                                                                                                                                                                                           
-    REQUEST NUMBER:  BP00XX                                                                                                                                                   
+    REQUEST NUMBER:                                                                                                                                                   
                                                                                                                                                                                                                                                           
     REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
                                                                                                                                                                                                                                                           
@@ -676,4 +676,5 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
+
 
