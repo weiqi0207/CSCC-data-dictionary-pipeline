@@ -1,12 +1,50 @@
+***********************************************************************                                    
+    COLLABORATIVE STUDIES COORDINATING CENTER                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                          
+    REQUEST NUMBER:  BP00XX                                                                                                                                                   
+                                                                                                                                                                                                                                                          
+    REQUEST TITLE:   Analysis Dataset and Data Dictionary Creation
+                                                                                                                                                                                                                                                          
+    REQUEST DESCR:   Create dictionaries that meet the BDC dictionaries requirements
+                                                                                                                                                                                                                                     
+    STUDY:           BEST                                                                                                                                                                               
+                                                                                                                                                                                                                                                          
+    MANUSCRIPT #:    Practicum Project                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                          
+    PROGRAMMER:      Weiqi Wang
+ 
+    REQUESTOR:       Micah McCumber
+ 
+    SUBMITTED BY:    n/a
+ 
+    DATE:            07/04/2025
+----------------------------------------------------------------------                                                                                                                                                                                    
+    JOBNAME:         BP_dictionary
+
+    JOB DESCRIPTION: Create data dictionary based on raw dataset
+
+    LANGUAGE/VER:    SAS - Ver 9.4
+
+    HISTORY (PROG):  
+
+    RELATED:         n/a
+
+    PROGRAM NOTES:   
+-----------------------------------------------------------------------
+    INPUT FILES:     raw data.sas
+        
+    OUTPUT FILES:    combined_dictionary.xlsx
+
+***********************************************************************;
 /* Set SAS options for merging, variable naming, and macro operators */
 options mergenoby=warn validvarname=upcase minoperator;
 
-%let indir=\CSCC-data-dictionary-pipeline\input\raw; /*Replace this with your input directory */
-%let outdir=\CSCC-data-dictionary-pipeline\output\raw; /*Replace this with your output directory */
+%let indir=J:\BACPAC\SC\SASdata\BEST\250116\; /*Replace this with your inpucct directory */
+%let outdir=J:\BACPAC\Statistics\Special_Projects\DataDictionaryPracticum\raw\output\; /*Replace this with your output directory */
 %let outxlsx = &outdir.\combined_dictionary_raw.xlsx; /*Replace the last element with the intended name of your output .xlsx */
-%let dslist=peg pgic;/* Replace this with raw datasets */
-%let cl=cl;/* Replace this with codelist */
-%let vl=vl;/* Replace this with varlabel */
+%let dslist=PEG_250116 PGIC_250116;/* Replace this with raw datasets */
+%let cl=codelist250116;/* Replace this with codelist */
+%let vl=varlabel250116;/* Replace this with varlabel */
 
 
 /* Wrapper Macro to Export All */
@@ -601,6 +639,13 @@ ods excel file="&outxlsx" style=excel;
 	    if TYPE="" then TYPE = "unknown";
 	run;
 
+	/*Typically comment1 start with a = sign, which excel would treat it as a command, so I added a ' before = to avoid the issue*/
+	data metadataset1_sorted;
+	    set metadataset1_sorted;
+	    if not missing(COMMENT1) and char(COMMENT1,1)='=' then COMMENT1 = cats("'", COMMENT1);
+	    if not missing(COMMENT2) and char(COMMENT2,1)='=' then COMMENT2 = cats("'", COMMENT2);
+	run;
+
 	/* Final Check Point */
 	/*proc print data=metadataset1_sorted; run;*/
 
@@ -631,6 +676,4 @@ ods excel file="&outxlsx" style=excel;
 %export_all;
 
 ods excel close;
-
-
 
